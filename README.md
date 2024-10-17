@@ -1,0 +1,2 @@
+# NyInvest
+Blog de investimentos 
