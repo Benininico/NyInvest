@@ -49,6 +49,17 @@ body {
     color: #779f00;
 }
 
+.menu-botao {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url(img/menu-botao.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%
+}
+
 /* Footer */
 .custom-footer {
     background-color: #000;
@@ -90,6 +101,10 @@ hr.linha {
 .item-flexbox-index {
     width: 49%;
     height: 100%;
+}
+
+.item-flexbox-index img {
+    border-radius: 5px;
 }
 
 
