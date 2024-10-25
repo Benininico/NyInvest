@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Paleta de cores */
+.paleta {
+    color: #a6a6a6;
+    color: #ff3131;
+    color: #779f00;
+    color: #000;
+    color: #fff;
+}
+
+/* Fonte */
+.fonte {
+    font-family: "Hammersmith One", sans-serif;
+    font-weight: 400;
+    font-style: normal;     
+}
+
+
+body {
+    background-color: #000;
+}
+
+/* Menu */
+.custom-navbar {
+    background-color: #000;
+}
+.custom-navbar .nav-link {
+    color: #fff;
+}
+.custom-navbar .nav-link:hover {
+    color: #a6a6a6;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #a6a6a6; /* Altere para a cor de fundo desejada */
+    color: #000; /* Altere para a cor de texto desejada */
+}
+
+.dropdown-title {
+    margin-left: 10px;
+    color: #779f00;
+}
+
+/* Footer */
+.custom-footer {
+    background-color: #000;
+    color: #779f00;
+}
+
+.conteudo {
+    background-color: #000;
+    padding-bottom: 50px;
+}
+
+h1.title {
+    color: #779f00;
+}
+
+p.text {
+    color: #fff;
+}
+
+.flexbox-index{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-flexbox-index {
+    width: 49%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1024px), screen and (orientation: portrait) {
+    .flexbox-index{
+        flex-direction: column;
+    }
+    .item-flexbox-index {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) and (orientation: portrait) {
+    .flexbox-index{
+        flex-direction: column;
+    }
+}
+
+
+hr.linha {
+    margin-inline: 10%;
+    border: 2px solid #a6a6a6;
+    border-radius: 2px;
+}
+
+.txt {
+    margin-inline: 5%;
+}
+
