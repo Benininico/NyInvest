@@ -81,8 +81,9 @@ body {
 
 /* Conteudo  */
 .conteudo {
+    padding-top: 40px;
     background-color: #000;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 
 h1.title {
@@ -90,6 +91,14 @@ h1.title {
 }
 
 h2.title {
+    color: #779f00;
+}
+
+h3.title {
+    color: #779f00;
+}
+
+h4.title {
     color: #779f00;
 }
 
@@ -101,6 +110,16 @@ hr.linha {
     margin-inline: 10%;
     border: 2px solid #a6a6a6;
     border-radius: 2px;
+}
+
+hr.linha1 {
+    margin-inline: 10%;
+    border: 1px dotted #a6a6a6;
+    border-radius: 2px;
+}
+
+hr.linhaC {
+    color: transparent;
 }
 
 .txt {
@@ -122,13 +141,40 @@ hr.linha {
 .info-index {
     text-align: center;
 }
-.info-index ul {
 
+.info-index ul {
+    
+}
+
+.info-index li:hover {
+    transform: scale(1.075s);
+    border-radius: 5px;
 }
 
 .info-index li {
     margin-bottom: 3%;
     text-align: left !important;
+    transition: transform 0.3s ease;
+}
+
+.termos-index {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.termos-index li:hover {
+    transform: scale(1.05);
+    border-radius: 10px;
+    color: #a6a6a6 !important;
+    background-color: #3636362d;
+}
+
+.termos-index li {
+    margin-bottom: 3%;
+    padding: 5px;
+    text-align: left !important;
+    transition: transform 0.3s ease;
 }
 
 /* Para celulares e tablets */
@@ -147,11 +193,22 @@ screen and (orientation: portrait) {
     .item-flexbox-index img {
         padding-left: 0px;
     }
+    hr.linhaC {
+        margin-inline: 10%;
+        border: 2px solid #a6a6a6;
+        border-radius: 2px;
+    }
 }
 
 @media screen and (max-width: 700px) and (orientation: portrait) {
     .flexbox-index {
         flex-direction: column;
+    }
+
+    .termos-index {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     .item-flexbox-index {
@@ -161,5 +218,11 @@ screen and (orientation: portrait) {
 
     .item-flexbox-index img {
         padding-left: 0px;
+    }
+
+    hr.linhaC {
+        margin-inline: 10%;
+        border: 2px solid #a6a6a6;
+        border-radius: 2px;
     }
 }
