@@ -1,0 +1,34 @@
+*index
+Um home do site
+
+*O que e um investimento
+Historia
+Atualmente
+Necessidade e importancia
+Como posso começar
+Corretoras
+Dúvidas Frequentes
+
+*Renda fixa
+O que é
+exemplos
+como investir cada exemplo
+
+*Renda variavel
+O que é
+exemplos
+como investir cada exemplo
+
+*Golpes
+Quais são
+Como disguigir de um inestimento real
+
+*Ferramentas
+Calculadoras graficas
+
+
+*Codigo fonte
+link do github
+
+*Sobre-nos
+Explicação do projeto
