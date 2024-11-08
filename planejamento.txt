@@ -5,7 +5,7 @@ index
 -Introdução
 Como começar                comocomecar.html
 Poupar                      poupar.html
-Renda Fixa X Variavel       renda.html
+Renda Fixa X variável       renda.html
 Carteira de Investimentos   carteira.html
 
 *Golpes
