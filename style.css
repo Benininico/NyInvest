@@ -200,6 +200,20 @@ img.img {
     transition: transform 0.3s ease;
 }
 
+.flexbox-img {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-flexbox-img img {
+    gap: auto;
+    width: 100%;
+    margin-inline: auto;
+}
+
+
 /* Para celulares e tablets */
 
 @media screen and (max-width: 1024px),
