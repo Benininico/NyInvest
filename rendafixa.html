@@ -16,6 +16,14 @@
         crossorigin="anonymous"></script>
     <title>NyInvest</title>
     <link rel="icon" type="image/png" sizes="32x32" href="img/Ny.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .form-group {
+            color: #779f00;
+        }
+    </style>
+</head>
 </head>
 
 <body>
@@ -57,7 +65,7 @@
                                 <li class="dropdown-title">Populares</li>
                                 <li><a class="dropdown-item" href="cassinos.html">Cassinos</a></li>
                                 <li><a class="dropdown-item" href="urubudopix.html">Urubo do PIX</a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -82,6 +90,138 @@
         </nav>
     </header>
     <div class="conteudo">
+        <div class="txt">
+            <div class="flexbox-index">
+                <div class="item-flexbox-index" style="width: 30%;">
+                    <h1 class="title">Calculadora de Renda Fixa</h1>
+                    <p class="text">Insira os valores abaixo para calcular o rendimento de uma aplicação em renda fixa
+                        com
+                        juros compostos.</p>
+
+                    <!-- Formulário para entrada de dados -->
+                    <div class="form-group">
+                        <label for="valorInicial">Valor Inicial (R$):</label>
+                        <input type="number" id="valorInicial" class="form-control"
+                            placeholder="Digite o valor inicial" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aporteMensal">Aporte Mensal (R$):</label>
+                        <input type="number" id="aporteMensal" class="form-control"
+                            placeholder="Digite o valor do aporte mensal" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tempo">Tempo de Investimento (meses):</label>
+                        <input type="number" id="tempo" class="form-control" placeholder="Digite o tempo em meses" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="juros">Taxa de Juros Mensal (%):</label>
+                        <input type="number" id="juros" class="form-control"
+                            placeholder="Digite a taxa de juros mensal" />
+                    </div>
+
+                    <button id="calcular" style="background-color: #779f00;" class="btn btn-block">Calcular Rendimento</button>
+                    <button id="resetar" style="background-color: #a6a6a6; color: #000;" class="btn btn-block" style="margin-top: 20px;">Limpar
+                        Valores</button>
+                </div>
+                <div class="item-flexbox-index img-center" style="width: 60%;">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // CHATGPT:
+        // Inicializando a variável do gráfico
+        var myChart = null;
+
+        // Função para calcular o rendimento
+        document.getElementById('calcular').addEventListener('click', function () {
+            // Pega os valores do formulário
+            var valorInicial = parseFloat(document.getElementById('valorInicial').value);
+            var aporteMensal = parseFloat(document.getElementById('aporteMensal').value);
+            var tempo = parseInt(document.getElementById('tempo').value);
+            var taxaJuros = parseFloat(document.getElementById('juros').value) / 100;
+
+            // Valida os campos
+            if (isNaN(valorInicial) || isNaN(aporteMensal) || isNaN(tempo) || isNaN(taxaJuros) || valorInicial <= 0 || tempo <= 0 || taxaJuros <= 0) {
+                alert('Por favor, preencha todos os campos corretamente!');
+                return;
+            }
+
+            // Calculando o rendimento ao longo do tempo
+            var valores = [];
+            var meses = [];
+            var saldo = valorInicial;
+
+            // Loop para calcular o saldo mês a mês
+            for (var i = 0; i <= tempo; i++) {
+                valores.push(saldo.toFixed(2));  // Armazena o valor formatado com 2 casas decimais
+                meses.push(i); // Armazena o número do mês
+                saldo += saldo * taxaJuros;  // Aplica a fórmula dos juros compostos
+                saldo += aporteMensal;  // Adiciona o aporte mensal
+            }
+
+            // Se o gráfico já existir, destrói ele antes de criar o novo
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // Criando o gráfico com Chart.js
+            var ctx = document.getElementById('myChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line', // Tipo de gráfico
+                data: {
+                    labels: meses, // Mês (X)
+                    datasets: [{
+                        label: 'Rendimento de Renda Fixa',
+                        data: valores, // Valores (Y)
+                        borderColor: 'rgb(119, 159, 0)',
+                        backgroundColor: 'rgba(166, 166, 166, 0.100)',
+                        fill: true,
+                        lineTension: 0.2,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Meses'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Saldo (R$)'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
+        // Função para resetar o formulário e o gráfico
+        document.getElementById('resetar').addEventListener('click', function () {
+            // Limpar campos do formulário
+            document.getElementById('valorInicial').value = '';
+            document.getElementById('aporteMensal').value = '';
+            document.getElementById('tempo').value = '';
+            document.getElementById('juros').value = '';
+
+            // Limpar o gráfico
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // Resetar a interface
+            document.getElementById('myChart').style.display = 'none';
+        });
+    </script>
 
     </div>
     <footer class="text-center custom-footer">
@@ -98,13 +238,16 @@
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase" style="color: #779f00;">Links úteis</h5>
                     <ul class="list-unstyled">
-                        <li><a href="comocomecar.html" style="color: #a6a6a6;">O que você precisa saber para começar</a>
+                        <li><a href="comocomecar.html" style="color: #a6a6a6;">O que você precisa saber para
+                                começar</a>
                         </li>
                         <li><a href="renda.html" style="color: #a6a6a6;">Renda fixa x variável</a></li>
                         <li><a href="rendafixa.html" style="color: #a6a6a6;">Calcular renda</a></li>
-                        <li><a href="carteira.html" style="color: #a6a6a6;">O que é uma carteira de investimentos</a>
+                        <li><a href="carteira.html" style="color: #a6a6a6;">O que é uma carteira de
+                                investimentos</a>
                         </li>
-                        <li><a href="montarcarteira.html" style="color: #a6a6a6;">Ferramenta para criar sua carteira de
+                        <li><a href="montarcarteira.html" style="color: #a6a6a6;">Ferramenta para criar sua carteira
+                                de
                                 investimentos</a></li>
                     </ul>
                 </div>
