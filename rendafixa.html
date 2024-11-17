@@ -22,6 +22,18 @@
         .form-group {
             color: #779f00;
         }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+        }
+
+        .btn {
+            width: 100% !important;
+        }
     </style>
 </head>
 
@@ -42,7 +54,7 @@
                             <a class="nav-link" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button"
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
                                 aria-expanded="false">Investimento</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-title">Introdução</li>
@@ -68,7 +80,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button"
                                 aria-expanded="false">Ferramentas</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-title">Calculadoras Gráficas</li>
@@ -120,9 +132,11 @@
                         <input type="number" id="juros" class="form-control"
                             placeholder="Digite a taxa de juros mensal" />
                     </div>
-
+                    <br>
                     <button id="calcular" style="background-color: #779f00; color: #fff;" class="btn btn-block">Calcular
                         Rendimento</button>
+                        <br>
+                        <br>
                     <button id="resetar" style="background-color: #a6a6a6; color: #000;" class="btn btn-block"
                         style="margin-top: 20px;">Limpar
                         Valores</button>
